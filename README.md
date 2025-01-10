@@ -1,40 +1,48 @@
-# Modelo de projeto de ciência de dados
+# Análise estatística da base de dados de pessoas com diabetes nos EUA
 
-Modelo de projeto de ciência de dados para ser utilizado como referência em projetos
-futuros. Desenvolvido por mim, [Francisco Bustamante](https://github.com/chicolucio),
-para alunos iniciantes em ciência de dados de meus cursos e mentorias.
+Este projeto de estatística tem como objetivo explorar e analisar dados estatísticos relacionados ao diabetes nos Estados Unidos, utilizando um grande conjunto de dados coletados pelo Behavioral Risk Factor Surveillance System (BRFSS) em 2015. A análise busca identificar padrões e fatores associados ao diabetes, com foco em características socioeconômicas, comportamentos de risco e condições de saúde, para contribuir no combate à prevalência dessa doença e apoiar estratégias de saúde pública.
 
-Inspiração: [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+O diabetes é uma das doenças crônicas mais prevalentes nos Estados Unidos, afetando milhões de pessoas e causando sérias complicações de saúde, como doenças cardíacas, perda de visão, amputações e problemas renais. Em 2018, cerca de 34,2 milhões de americanos foram diagnosticados com diabetes e outros 88 milhões apresentavam pré-diabetes, sendo que grande parte dessas pessoas não tinham conhecimento de sua condição.
 
-Clique no botão **Use this template** para criar um novo repositório com base neste modelo.
+Os custos associados ao diabetes são alarmantes, com despesas anuais estimadas em cerca de $400 bilhões, considerando diagnósticos de diabetes, pré-diabetes e casos não diagnosticados. A doença também afeta desproporcionalmente indivíduos de baixa renda e menor escolaridade, destacando a necessidade de intervenções direcionadas.
+
+![Imagem](imagens/diabetes.jpg)
+
+Os objetivos específicos incluem:
+
+1. Identificar os fatores de risco associados ao diabetes:
+
+A análise pretende examinar como fatores como idade, renda, escolaridade, hábitos de vida (como alimentação, consumo de álcool, tabagismo e atividade física) e condições de saúde impactam o risco de diabetes.
+
+2. Compreender as disparidades socioeconômicas e demográficas:
+
+Avaliar como o diabetes varia entre diferentes grupos socioeconômicos e demográficos, como renda, raça, nível de educação e localização, para entender melhor como essas desigualdades afetam a prevalência da doença.
+
+
 
 ## Organização do projeto
 
 ```
-├── .env               <- Arquivo de variáveis de ambiente (não versionar)
 ├── .gitignore         <- Arquivos e diretórios a serem ignorados pelo Git
 ├── ambiente.yml       <- O arquivo de requisitos para reproduzir o ambiente de análise
-├── LICENSE            <- Licença de código aberto se uma for escolhida
+├── LICENSE            <- Licença de código aberto (MIT)
 ├── README.md          <- README principal para desenvolvedores que usam este projeto.
 |
 ├── dados              <- Arquivos de dados para o projeto.
 |
-├── modelos            <- Modelos treinados e serializados, previsões de modelos ou resumos de modelos
 |
-├── notebooks          <- Cadernos Jupyter. A convenção de nomenclatura é um número (para ordenação),
-│                         as iniciais do criador e uma descrição curta separada por `-`, por exemplo
-│                         `01-fb-exploracao-inicial-de-dados`.
+├── notebooks          <- Jupyter Notebook.
 │
 |   └──src             <- Código-fonte para uso neste projeto.
 |      │
 |      ├── __init__.py  <- Torna um módulo Python
 |      ├── config.py    <- Configurações básicas do projeto
-|      └── graficos.py  <- Scripts para criar visualizações exploratórias e orientadas a resultados
+|      └── estatistica.py  <- Funções criadas para este projeto.
 |
-├── referencias        <- Dicionários de dados, manuais e todos os outros materiais explicativos.
+├── referencias        <- Dicionários de dados.
 |
-├── relatorios         <- Análises geradas em HTML, PDF, LaTeX, etc.
-│   └── imagens        <- Gráficos e figuras gerados para serem usados em relatórios
+├── imagens         <- Imagens utilizadas no projeto
+
 ```
 
 ## Configuração do ambiente
@@ -47,40 +55,37 @@ Clique no botão **Use this template** para criar um novo repositório com base 
 
 2. Crie um ambiente virtual para o seu projeto utilizando o gerenciador de ambientes de sua preferência.
 
-    a. Caso esteja utilizando o `conda`, exporte as dependências do ambiente para o arquivo `ambiente.yml`:
 
-      ```bash
-      conda env export > ambiente.yml
-      ```
+```bash
+conda env export > ambiente.yml
+```
 
-    b. Caso esteja utilizando outro gerenciador de ambientes, exporte as dependências
-    para o arquivo `requirements.txt` ou outro formato de sua preferência. Adicione o
-    arquivo ao controle de versão, removendo o arquivo `ambiente.yml`.
+## Um pouco mais sobre a base
 
-3. Verifique o arquivo `notebooks/01-fb-exemplo.ipynb` para exemplos
-de uso do código.
-4. Renomeie o arquivo `notebooks/01-fb-exemplo.ipynb` para um nome
-mais apropriado ao seu projeto. E siga a convenção de nomenclatura para os demais
-notebooks.
-5. Remova arquivos de exemplo e adicione os arquivos de dados e notebooks do seu
-projeto.
-6. Verifique o arquivo `notebooks/src/config.py` para configurações básicas do projeto.
-Modifique conforme necessário, adicionando ou removendo caminhos de arquivos e
-diretórios.
-7. Atualize o arquivo `referencias/01_dicionario_de_dados.md` com o dicionário de dados
-do seu projeto.
-8. Atualize o `README.md` com informações sobre o seu projeto.
-9. Adicione uma licença ao projeto. Clique
-[aqui](https://docs.github.com/pt/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
-se precisar de ajuda para escolher uma licença.
-10. Renomeie o arquivo `.env.exemplo` para `.env`
-11. Adicione variáveis de ambiente sensíveis ao arquivo `.env`.
+[Clique aqui](referencias/01_dicionario_de_dados.md) para ver o dicionário de dados da base utilizada
 
-Por padrão, o arquivo `.gitignore` já está configurado para ignorar arquivos de dados e
-arquivos de Notebook (para aqueles que usam ferramentas como
-[Jupytext](https://jupytext.readthedocs.io/en/latest/) e similares). Adicione ou remova
-outros arquivos e diretórios do `.gitignore` conforme necessário. Caso deseje adicionar
-forçadamente um Notebook ao controle de versão, faça um commit forçado com o
-comando `git add --force NOME_DO_ARQUIVO.ipynb`.
+## Resumo dos principais resultados
 
-Para mais informações sobre como usar Git e GitHub, [clique aqui](https://cienciaprogramada.com.br/2021/09/guia-definitivo-git-github/). Sobre ambientes virtuais, [clique aqui](https://cienciaprogramada.com.br/2020/08/ambiente-virtual-projeto-python/).
+Com base nos gráficos apresentados:
+
+1. Diabetes por variáveis categóricas:
+   
+- Pressão Alta, Colesterol Alto e Problemas Cardíacos: Pessoas com essas condições apresentam uma alta associação com o diagnóstico de diabetes. Por exemplo, cerca de 75% dos indivíduos com problemas cardíacos têm diabetes.
+- Atividade Física e Consumo de Frutas e Legumes: Há uma menor prevalência de diabetes entre pessoas que praticam atividade física e consomem frutas e legumes regularmente.
+- Sem Dinheiro para Consultas: Há uma maior prevalência de diabetes entre pessoas que relatam dificuldade em pagar consultas médicas.
+- Dificuldade para Andar: Pessoas com dificuldades de locomoção apresentam uma alta prevalência de diabetes.
+- Gênero e Plano de Saúde: Não há uma diferença tão significativa na prevalência de diabetes entre homens e mulheres, e também não há para aqueles que tem plano de saúde ou não.
+- Pessoas com diabetes tem uma tendência de piora em seu estado de saúde, sendo que mais de 70% das pessoas que declararam ter saúde Aceitável ou Ruim, tem a doença.
+- A renda e nível de ensino superiores tendem a ter menor quantidade de pessoas com diabetes, já que elas tem maior acesso a prevenção e/ou tratamento dos que tem uma renda, ou nível de estudo inferior.
+- Pessoas com idades mais avançadas são mais propensas a ter diabetes, já que há um aumento expressivo da porcentagem na faixa das pessoas entre 45-49 anos.
+
+2. Distribuição de SaudeGeral por nível de ensino:
+
+- As pessoas que estão na faixa de ensino do Secundário para Faculdade + tem uma melhor qualidade de saúde do que da faixa do Sem Estudo para Secundário Incompleto
+- Isto influencia na questão da Faixa da Renda, pessoas que estão na faixa de ensino do Secundário para Faculdade + tem melhor renda que os demais, o que facilitaria o acesso ao tratamento médico do que os outros níveis.
+
+3. Coeficiente de Spearman:
+
+- Os resultados apresentados no Coeficiente de Spearman mostram a correlação entre as variáveis categóricas, e nela podemos tirar algumas conclusões, como o fato de uma pessoa com diabetes ter uma correlação significantemente alta em relação a saúde geral (0.41), Pressão Alta (0.38) e Colesterol Alto (0.29), isso pode ser considerado em outras colunas, como Pressão Alta x Faixa Idade por exemplo.
+
+- Falando de valores negativos, podemos tirar conclusões, como por exemplo, pessoas que praticam atividade física são menos propensas a ter dificuldades de andar (-0.27) e ter uma melhor saúde geral (-0.27), e pessoas com Faixa de Renda superior ou inferior, tendem a influenciar na saúde geral, na qual vimos no 2º tópico dos resultados, e etc.
