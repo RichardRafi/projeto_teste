@@ -47,18 +47,18 @@ Avaliar como o diabetes varia entre diferentes grupos socioeconômicos e demogr�
 
 ## Configuração do ambiente
 
-1. Faça o clone do repositório que será criado a partir deste modelo.
+1. Realize o clone do repositório.
 
     ```bash
-    git clone ENDERECO_DO_REPOSITORIO
+    git clone git@github.com:RichardRafi/rr_projeto_diabetes.git
     ```
 
-2. Crie um ambiente virtual para o seu projeto utilizando o gerenciador de ambientes de sua preferência.
+2. Crie um ambiente virtual para o seu projeto utilizando o 'conda'.
 
 
-```bash
-conda env export > ambiente.yml
-```
+    ```bash
+    conda env create -f ambiente.yml --name diabetes
+    ```
 
 ## Um pouco mais sobre a base
 
